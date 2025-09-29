@@ -2,12 +2,12 @@
 
 from singer_sdk.typing import (
     ArrayType,
+    DateTimeType,
     IntegerType,
     ObjectType,
     PropertiesList,
     Property,
     StringType,
-    DateTimeType,
 )
 
 insights_schema = PropertiesList(
@@ -24,7 +24,9 @@ insights_schema = PropertiesList(
     Property("resolved_by", StringType, description="Identifier of the user who resolved the insight (nullable)"),
     Property("group_id", StringType, description="Group identifier for related insights (nullable)"),
     Property("user_story", StringType, description="User story or narrative associated with the insight"),
-    Property("last_seen_at", DateTimeType, description="Timestamp when the insight was last seen in a session (ISO 8601)"),
+    Property(
+        "last_seen_at", DateTimeType, description="Timestamp when the insight was last seen in a session (ISO 8601)"
+    ),
     # might want to add the embedding later if we there's a use case, leaving out for now
     # Property(
     #     "embedding",
@@ -35,7 +37,9 @@ insights_schema = PropertiesList(
     Property("snoozed_at", DateTimeType, description="Timestamp when the insight was snoozed (ISO 8601)"),
     Property("snoozed_by", StringType, description="Identifier of the user who snoozed the insight"),
     Property("deep_research", StringType, description="Detailed research or analysis related to the insight"),
-    Property("generating_deep_research", IntegerType, description="Flag indicating if deep research is being generated"),
+    Property(
+        "generating_deep_research", IntegerType, description="Flag indicating if deep research is being generated"
+    ),
     Property("is_removed", IntegerType, description="Removal status (0 = active, 1 = removed)"),
     Property("sessions", ArrayType(StringType), description="List of session IDs associated with the insight"),
 ).to_dict()

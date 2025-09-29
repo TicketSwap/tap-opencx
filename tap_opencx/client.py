@@ -2,11 +2,8 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import typing as th
-
-T = th.TypeVar("T")
-TPageToken = th.TypeVar("TPageToken")
+from pathlib import Path
 
 import requests
 from singer_sdk.authenticators import BearerTokenAuthenticator
@@ -15,8 +12,10 @@ from singer_sdk.streams import RESTStream
 _Auth = th.Callable[[requests.PreparedRequest], requests.PreparedRequest]
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
+
 class OpenCXStream(RESTStream):
     """OpenCX stream class."""
+
     primary_keys: th.ClassVar[list[str]] = ["id"]
     replication_key = "updated_at"
 
@@ -28,4 +27,4 @@ class OpenCXStream(RESTStream):
     @property
     def authenticator(self):
         """Return the authenticator."""
-        return BearerTokenAuthenticator.create_for_stream(self, token=self.config.get("access_token"))
+        return BearerTokenAuthenticator(token=self.config.get("access_token"))
