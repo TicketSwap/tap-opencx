@@ -64,6 +64,13 @@ sessions_schema = PropertiesList(
         "ticketing_system",
         ObjectType(
             Property("external_id", StringType, description="external (i.e. intercom) id of the conversation"),
+            Property("name", StringType, description="name of the application"),
+            Property(
+                "id_type",
+                StringType,
+                description="id type of the ticketing system",
+                allowed_values=["conversation_id", "ticket_id", "case_id", "conversation_sid"],
+            ),
         ),
     ),
     Property("created_at", DateTimeType, description="session created timestamp (ISO 8601)"),
