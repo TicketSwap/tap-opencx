@@ -1,9 +1,12 @@
 """OpenCX tap class."""
 
 from __future__ import annotations
+
 from singer_sdk import Tap
 from singer_sdk import typing as th  # JSON schema typing helpers
+
 from tap_opencx import streams
+
 
 class TapOpenCX(Tap):
     """OpenCX tap class."""
@@ -32,9 +35,9 @@ class TapOpenCX(Tap):
             A list of discovered streams.
         """
         return [
-            streams.InsightsStream(self),
             streams.SessionsStream(self),
         ]
+
 
 if __name__ == "__main__":
     TapOpenCX.cli()
