@@ -37,6 +37,16 @@ sessions_schema = PropertiesList(
             ),
         ),
     ),
+    Property(
+        "status",
+        StringType,
+        description="current status of the session",
+    ),
+    Property(
+        "ai_closure_type",
+        StringType,
+        description="how the AI closed the session, null if not closed by AI",
+    ),
     Property("created_at", DateTimeType, description="session created timestamp (ISO 8601)"),
     Property("updated_at", DateTimeType, description="session updated timestamp (ISO 8601)"),
 ).to_dict()
