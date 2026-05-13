@@ -41,13 +41,11 @@ sessions_schema = PropertiesList(
         "status",
         StringType,
         description="current status of the session",
-        allowed_values=["open", "closed_resolved", "closed_unresolved"],
     ),
     Property(
         "ai_closure_type",
         StringType,
         description="how the AI closed the session, null if not closed by AI",
-        allowed_values=["assumed_resolved", "handed_off", "resolved"],
     ),
     Property("created_at", DateTimeType, description="session created timestamp (ISO 8601)"),
     Property("updated_at", DateTimeType, description="session updated timestamp (ISO 8601)"),
