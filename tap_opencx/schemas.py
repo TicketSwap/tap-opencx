@@ -47,6 +47,11 @@ sessions_schema = PropertiesList(
         StringType,
         description="how the AI closed the session, null if not closed by AI",
     ),
+    Property(
+        "summary",
+        StringType,
+        description="AI-generated summary of the conversation",
+    ),
     Property("created_at", DateTimeType, description="session created timestamp (ISO 8601)"),
     Property("updated_at", DateTimeType, description="session updated timestamp (ISO 8601)"),
 ).to_dict()
