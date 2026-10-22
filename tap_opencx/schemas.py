@@ -52,6 +52,15 @@ sessions_schema = PropertiesList(
         StringType,
         description="AI-generated summary of the conversation",
     ),
+    Property(
+        "custom_data",
+        ObjectType(
+            Property("draft_id", StringType, description="id of the draft the session is about"),
+            Property("draft_event_id", StringType, description="id of the event of the draft the session is about"),
+            additional_properties=False,
+        ),
+        description="session-level custom data stored on the chat session",
+    ),
     Property("created_at", DateTimeType, description="session created timestamp (ISO 8601)"),
     Property("updated_at", DateTimeType, description="session updated timestamp (ISO 8601)"),
 ).to_dict()
