@@ -12,7 +12,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -20,13 +19,11 @@ classifiers = [
 ]
 license = "Apache-2.0"
 license-files = [ "LICENSE" ]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 
 dependencies = [
-    "singer-sdk>=0.42.1",
-    "fs-s3fs",
+    "singer-sdk>=0.54.9",
     "requests",
-    "cached-property",  # Remove after Python 3.7 support is dropped
 ]
 
 [project.optional-dependencies]
@@ -91,7 +88,6 @@ env_list = [
     "py312",
     "py311",
     "py310",
-    "py39",
 ]
 
 [tool.tox.env_run_base]
