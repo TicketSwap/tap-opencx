@@ -40,8 +40,8 @@ dev = [
     { include-group = "test" },
 ]
 test = [
-    "pytest>=8",
-    "pytest-github-actions-annotate-failures>=0.3",
+    "pytest>=9.1.1",
+    "pytest-github-actions-annotate-failures>=0.4.2",
     "singer-sdk[testing]",
 ]
 [tool.hatch.build.targets.wheel]
@@ -94,7 +94,7 @@ env_list = [
 runner = "uv-venv-lock-runner"
 pass_env = [
     "GITHUB_*",
-    "TAP_INTERCOM_*",
+    "TAP_OPENCX_*",
 ]
 dependency_groups = [ "test" ]
 commands = [ [ "pytest", { replace = "posargs", default = [ "tests" ], extend = true } ] ]

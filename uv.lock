@@ -1987,13 +1987,13 @@ provides-extras = ["s3"]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "pytest", specifier = ">=8" },
-    { name = "pytest-github-actions-annotate-failures", specifier = ">=0.3" },
+    { name = "pytest", specifier = ">=9.1.1" },
+    { name = "pytest-github-actions-annotate-failures", specifier = ">=0.4.2" },
     { name = "singer-sdk", extras = ["testing"] },
 ]
 test = [
-    { name = "pytest", specifier = ">=8" },
-    { name = "pytest-github-actions-annotate-failures", specifier = ">=0.3" },
+    { name = "pytest", specifier = ">=9.1.1" },
+    { name = "pytest-github-actions-annotate-failures", specifier = ">=0.4.2" },
     { name = "singer-sdk", extras = ["testing"] },
 ]
 
