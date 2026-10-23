@@ -76,23 +76,20 @@ requires = [
 ]
 build-backend = "hatchling.build"
 
-# This configuration can be used to customize tox tests as well as other test frameworks like flake8 and mypy
 [tool.tox]
-min_version = "4.22"
 requires = [
-    "tox>=4.22",
-    "tox-uv",
+    "tox>=4.53",
+    "tox-uv>=1.35",
 ]
 env_list = [
-    "py313",
-    "py312",
-    "py311",
-    "py310",
+    { prefix = "3.", start = 10 },
 ]
 
 [tool.tox.env_run_base]
+description = "run tests on Python {env_name}"
 runner = "uv-venv-lock-runner"
 pass_env = [
+    "CI",
     "GITHUB_*",
     "TAP_OPENCX_*",
 ]
