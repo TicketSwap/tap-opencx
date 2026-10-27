@@ -60,6 +60,7 @@ plugins = "sqlmypy"
 [tool.ruff.lint]
 ignore = [
     "COM812",  # missing-trailing-comma
+    "CPY001",
 ]
 select = ["ALL"]
 

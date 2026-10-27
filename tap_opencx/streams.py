@@ -11,6 +11,8 @@ from tap_opencx.schemas import (
 
 
 class SessionsStream(OpenCXStream):
+    """OpenCX chat sessions stream."""
+
     name = "sessions"
     path = "/chat/sessions"
     records_jsonpath = "$.items[*]"
