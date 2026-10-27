@@ -13,27 +13,44 @@ sessions_schema = PropertiesList(
     Property(
         "channel",
         ObjectType(
-            Property("type", StringType, description="type of channel (e.g., web, mobile)"),
+            Property(
+                "type", StringType, description="type of channel (e.g., web, mobile)"
+            ),
         ),
     ),
     Property("language", StringType, description="language of the conversation"),
     Property(
         "handoff",
         ObjectType(
-            Property("sentiment", StringType, description="user sentiment at time of handoff"),
-            Property("summary", StringType, description="summary of conversation at time of handoff"),
+            Property(
+                "sentiment", StringType, description="user sentiment at time of handoff"
+            ),
+            Property(
+                "summary",
+                StringType,
+                description="summary of conversation at time of handoff",
+            ),
         ),
     ),
     Property(
         "ticketing_system",
         ObjectType(
-            Property("external_id", StringType, description="external (i.e. intercom) id of the conversation"),
+            Property(
+                "external_id",
+                StringType,
+                description="external (i.e. intercom) id of the conversation",
+            ),
             Property("name", StringType, description="name of the application"),
             Property(
                 "id_type",
                 StringType,
                 description="id type of the ticketing system",
-                allowed_values=["conversation_id", "ticket_id", "case_id", "conversation_sid"],
+                allowed_values=[
+                    "conversation_id",
+                    "ticket_id",
+                    "case_id",
+                    "conversation_sid",
+                ],
             ),
         ),
     ),
@@ -55,12 +72,24 @@ sessions_schema = PropertiesList(
     Property(
         "custom_data",
         ObjectType(
-            Property("draft_id", StringType, description="id of the draft the session is about"),
-            Property("draft_event_id", StringType, description="id of the event of the draft the session is about"),
+            Property(
+                "draft_id",
+                StringType,
+                description="id of the draft the session is about",
+            ),
+            Property(
+                "draft_event_id",
+                StringType,
+                description="id of the event of the draft the session is about",
+            ),
             additional_properties=False,
         ),
         description="session-level custom data stored on the chat session",
     ),
-    Property("created_at", DateTimeType, description="session created timestamp (ISO 8601)"),
-    Property("updated_at", DateTimeType, description="session updated timestamp (ISO 8601)"),
+    Property(
+        "created_at", DateTimeType, description="session created timestamp (ISO 8601)"
+    ),
+    Property(
+        "updated_at", DateTimeType, description="session updated timestamp (ISO 8601)"
+    ),
 ).to_dict()
