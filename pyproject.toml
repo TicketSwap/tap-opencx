@@ -12,14 +12,13 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
 license = "Apache-2.0"
 license-files = [ "LICENSE" ]
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 
 dependencies = [
     "singer-sdk>=0.54.9",
@@ -82,7 +81,7 @@ requires = [
     "tox-uv>=1.35",
 ]
 env_list = [
-    { prefix = "3.", start = 10 },
+    { prefix = "3.", start = 11 },
 ]
 
 [tool.tox.env_run_base]
