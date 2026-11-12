@@ -1,6 +1,6 @@
 """Tests standard tap features using the built-in SDK tests library."""
 
-import datetime
+import datetime as dt
 import os
 
 from singer_sdk.testing import SuiteConfig, get_tap_test_class
@@ -8,7 +8,7 @@ from singer_sdk.testing import SuiteConfig, get_tap_test_class
 from tap_opencx.tap import TapOpenCX
 
 SAMPLE_CONFIG = {
-    "start_date": (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=12)).isoformat(),
+    "start_date": (dt.datetime.now(dt.UTC) - dt.timedelta(hours=12)).isoformat(),
     "access_token": os.getenv("TAP_OPENCX_ACCESS_TOKEN"),
 }
 

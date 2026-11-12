@@ -24,7 +24,9 @@ class TapOpenCX(Tap):
         th.Property(
             "start_date",
             th.DateTimeType,
-            description="The earliest record date to sync, in ISO 8601 timestamp format",
+            description=(
+                "The earliest record date to sync, in ISO 8601 timestamp format"
+            ),
         ),
     ).to_dict()
 

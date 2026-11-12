@@ -25,6 +25,6 @@ class OpenCXStream(RESTStream):
         return "https://api.open.cx"
 
     @property
-    def authenticator(self):
+    def authenticator(self) -> BearerTokenAuthenticator:
         """Return the authenticator."""
         return BearerTokenAuthenticator(token=self.config.get("access_token"))

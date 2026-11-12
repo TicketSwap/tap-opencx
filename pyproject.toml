@@ -12,21 +12,17 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
 ]
 license = "Apache-2.0"
 license-files = [ "LICENSE" ]
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 
 dependencies = [
-    "singer-sdk>=0.42.1",
-    "fs-s3fs",
+    "singer-sdk>=0.54.9",
     "requests",
-    "cached-property",  # Remove after Python 3.7 support is dropped
 ]
 
 [project.optional-dependencies]
@@ -43,8 +39,8 @@ dev = [
     { include-group = "test" },
 ]
 test = [
-    "pytest>=8",
-    "pytest-github-actions-annotate-failures>=0.3",
+    "pytest>=9.1.1",
+    "pytest-github-actions-annotate-failures>=0.4.2",
     "singer-sdk[testing]",
 ]
 [tool.hatch.build.targets.wheel]
@@ -64,6 +60,7 @@ plugins = "sqlmypy"
 [tool.ruff.lint]
 ignore = [
     "COM812",  # missing-trailing-comma
+    "CPY001",
 ]
 select = ["ALL"]
 
@@ -79,26 +76,22 @@ requires = [
 ]
 build-backend = "hatchling.build"
 
-# This configuration can be used to customize tox tests as well as other test frameworks like flake8 and mypy
 [tool.tox]
-min_version = "4.22"
 requires = [
-    "tox>=4.22",
-    "tox-uv",
+    "tox>=4.53",
+    "tox-uv>=1.35",
 ]
 env_list = [
-    "py313",
-    "py312",
-    "py311",
-    "py310",
-    "py39",
+    { prefix = "3.", start = 11 },
 ]
 
 [tool.tox.env_run_base]
+description = "run tests on Python {env_name}"
 runner = "uv-venv-lock-runner"
 pass_env = [
+    "CI",
     "GITHUB_*",
-    "TAP_INTERCOM_*",
+    "TAP_OPENCX_*",
 ]
 dependency_groups = [ "test" ]
 commands = [ [ "pytest", { replace = "posargs", default = [ "tests" ], extend = true } ] ]
