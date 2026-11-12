@@ -78,9 +78,9 @@ sessions_schema = PropertiesList(
                 description="id of the draft the session is about",
             ),
             Property(
-                "draft_event_id",
+                "event_id",
                 StringType,
-                description="id of the event of the draft the session is about",
+                description="id of the event the session is about",
             ),
             Property(
                 "topic",
