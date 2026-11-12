@@ -78,9 +78,34 @@ sessions_schema = PropertiesList(
                 description="id of the draft the session is about",
             ),
             Property(
-                "draft_event_id",
+                "event_id",
                 StringType,
-                description="id of the event of the draft the session is about",
+                description="id of the event the session is about",
+            ),
+            Property(
+                "topic",
+                StringType,
+                description=(
+                    "main topic of the session: "
+                    "buying, selling, payments, account, other"
+                ),
+            ),
+            Property(
+                "issue",
+                StringType,
+                description=(
+                    "exact problem of the session, from a fixed list within the topic"
+                ),
+            ),
+            Property(
+                "transaction_id",
+                StringType,
+                description="id of the transaction the session is about",
+            ),
+            Property(
+                "payout_id",
+                StringType,
+                description="id of the payout the session is about",
             ),
             additional_properties=False,
         ),
